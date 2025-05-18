@@ -1,14 +1,17 @@
 {
     "nexeor.com": {
         "name": "Nexeor Development",
-        "logo": "/client-logos/nexeor/logo_w_n.png"
+        "logo": "/client-logos/nexeor/logo_w_n.png",
+        "description": "Nexeor Development is a software development company specializing in custom solutions for businesses. We focus on delivering high-quality software that meets the unique needs of our clients."
     },
     "kenfood.qa": {
         "name": "Ken Food LLC",
-        "logo": "/client-logos/kenfood.png"
+        "logo": "/client-logos/kenfood.png",
+        "description": "Ken Food LLC is a leading food distribution company in Qatar, providing high-quality products to restaurants and retailers. We are committed to excellence in service and product quality."
     },
     "default": {
         "name": "Our Valued Client",
-        "logo": "/client-logos/default.png"
+        "logo": "/client-logos/default.png",
+        "description": "We are proud to work with a diverse range of clients, each with their own unique needs and challenges. Our team is dedicated to providing tailored solutions that drive success and growth."
     }
 }

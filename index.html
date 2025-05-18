@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Dynamic SEO Meta Tags -->
     <title>Coming Soon - Nexeor Client</title>
+    <meta name="description" content="Our new website is under construction">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Coming Soon - Nexeor Client">
+    <meta property="og:description" content="Our new website is under construction">
+    <meta property="og:image" content="">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coming Soon - Nexeor Client">
+    <meta name="twitter:description" content="Our new website is under construction">
+    <meta name="twitter:image" content="">
+    
     <style>
-        /* Modern Minimal CSS */
+        /* Previous CSS remains unchanged */
         * {
             margin: 0;
             padding: 0;
@@ -69,9 +83,52 @@
             color: #999;
             font-size: 0.9rem;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .nexeor-header {
+                padding: 1rem;
+            }
+            
+            .nexeor-logo {
+                height: 25px;
+            }
+            
+            .main-content {
+                padding: 1.5rem;
+            }
+            
+            .client-logo {
+                max-width: 200px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .footer {
+                padding: 1.5rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .nexeor-header span {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Body content remains the same -->
     <header class="nexeor-header">
         <img src="logo_w_n.png" alt="Nexeor" class="nexeor-logo">
         <span style="color: #333; font-size: 1.2rem;">Nexeor Development</span>
@@ -88,31 +145,43 @@
     </footer>
 
     <script>
-        // Fetch client data from JSON
         async function loadClientData() {
             try {
                 const response = await fetch('clients.json');
                 const clientData = await response.json();
                 const currentDomain = window.location.hostname;
-                
-                // Find client data or use default
                 const client = clientData[currentDomain] || clientData['default'];
 
-                // Update page elements
+                // Update page content
                 document.getElementById('clientName').textContent = client.name;
                 document.getElementById('clientLogo').src = client.logo;
+                document.getElementById('clientLogo').alt = `${client.name} Logo`;
+
+                // Update SEO Meta Tags
+                document.title = `Coming Soon | ${client.name}`;
+                const metaDescription = client.description || "Our new website is under construction";
                 
+                // Standard Meta Tags
+                document.querySelector('meta[name="description"]').content = metaDescription;
+                
+                // Open Graph
+                document.querySelector('meta[property="og:title"]').content = `Coming Soon | ${client.name}`;
+                document.querySelector('meta[property="og:description"]').content = metaDescription;
+                document.querySelector('meta[property="og:image"]').content = client.logo;
+                document.querySelector('meta[property="og:url"]').content = window.location.href;
+                
+                // Twitter
+                document.querySelector('meta[name="twitter:title"]').content = `Coming Soon | ${client.name}`;
+                document.querySelector('meta[name="twitter:description"]').content = metaDescription;
+                document.querySelector('meta[name="twitter:image"]').content = client.logo;
+
             } catch (error) {
                 console.error('Error loading client data:', error);
-                document.getElementById('clientName').textContent = 'Our Valued Client';
-                document.getElementById('clientLogo').src = '/client-logos/default/logo.png';
+                // Fallback content
             }
         }
 
-        // Get current year
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Load client data
         loadClientData();
     </script>
 </body>
