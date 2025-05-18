@@ -19,7 +19,6 @@
     <meta name="twitter:image" content="">
     
     <style>
-        /* Previous CSS remains unchanged */
         * {
             margin: 0;
             padding: 0;
@@ -84,7 +83,6 @@
             font-size: 0.9rem;
         }
 
-        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             .nexeor-header {
                 padding: 1rem;
@@ -128,7 +126,6 @@
     </style>
 </head>
 <body>
-    <!-- Body content remains the same -->
     <header class="nexeor-header">
         <a href="https://nexeor.com" target="_blank" rel="noopener noreferrer">
             <img src="logo_w_n.png" alt="Nexeor" class="nexeor-logo">
@@ -150,7 +147,14 @@
             try {
                 const response = await fetch('clients.json');
                 const clientData = await response.json();
-                const currentDomain = window.location.hostname;
+                
+                // Normalize domain - remove www. prefix if present
+                const originalDomain = window.location.hostname;
+                const currentDomain = originalDomain.startsWith('www.') 
+                    ? originalDomain.slice(4) 
+                    : originalDomain;
+                
+                // Find client data or use default
                 const client = clientData[currentDomain] || clientData['default'];
 
                 // Update page content
@@ -178,7 +182,8 @@
 
             } catch (error) {
                 console.error('Error loading client data:', error);
-                // Fallback content
+                document.getElementById('clientName').textContent = 'Our Valued Client';
+                document.getElementById('clientLogo').src = '/client-logos/default/logo.png';
             }
         }
 
