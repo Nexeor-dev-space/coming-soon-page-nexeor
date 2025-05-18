@@ -9,6 +9,11 @@
         "logo": "/client-logos/kenfood.png",
         "description": "Ken Food LLC is a leading food distribution company in Qatar, providing high-quality products to restaurants and retailers. We are committed to excellence in service and product quality."
     },
+    "www.kenfood.qa": {
+        "name": "Ken Food LLC",
+        "logo": "/client-logos/kenfood.png",
+        "description": "Ken Food LLC is a leading food distribution company in Qatar, providing high-quality products to restaurants and retailers. We are committed to excellence in service and product quality."
+    },
     "default": {
         "name": "Our Valued Client",
         "logo": "/client-logos/default.png",
