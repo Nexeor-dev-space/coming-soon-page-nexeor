@@ -73,7 +73,7 @@
 </head>
 <body>
     <header class="nexeor-header">
-        <img src="nexeor-logo.svg" alt="Nexeor" class="nexeor-logo">
+        <img src="logo_w_n.png" alt="Nexeor" class="nexeor-logo">
         <span style="color: #333; font-size: 1.2rem;">Nexeor Development</span>
     </header>
 
@@ -84,35 +84,36 @@
     </main>
 
     <footer class="footer">
-        © 2024 Nexeor. All rights reserved.
+        © <time id="currentYear"></time> Nexeor Development. All rights reserved.
     </footer>
 
     <script>
-        // Domain to client mapping
-        const clientData = {
-            'example.com': { // Replace with actual domain
-                name: 'Client Name',
-                logo: 'client-logo.svg'
-            },
-            'client2.com': {
-                name: 'Client Two',
-                logo: 'client2-logo.svg'
+        // Fetch client data from JSON
+        async function loadClientData() {
+            try {
+                const response = await fetch('clients.json');
+                const clientData = await response.json();
+                const currentDomain = window.location.hostname;
+                
+                // Find client data or use default
+                const client = clientData[currentDomain] || clientData['default'];
+
+                // Update page elements
+                document.getElementById('clientName').textContent = client.name;
+                document.getElementById('clientLogo').src = client.logo;
+                
+            } catch (error) {
+                console.error('Error loading client data:', error);
+                document.getElementById('clientName').textContent = 'Our Valued Client';
+                document.getElementById('clientLogo').src = '/client-logos/default/logo.png';
             }
-            // Add more domains and client data as needed
-        };
+        }
 
-        // Get current domain
-        const currentDomain = window.location.hostname;
+        // Get current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
         
-        // Find client data or use default
-        const client = clientData[currentDomain] || {
-            name: 'Our Valued Client',
-            logo: 'default-client-logo.svg'
-        };
-
-        // Update page elements
-        document.getElementById('clientName').textContent = client.name;
-        document.getElementById('clientLogo').src = client.logo;
+        // Load client data
+        loadClientData();
     </script>
 </body>
 </html>

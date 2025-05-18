@@ -1,0 +1,14 @@
+{
+    "nexeor.com": {
+        "name": "Nexeor Development",
+        "logo": "/client-logos/nexeor/logo_w_n.png"
+    },
+    "kenfood.qa": {
+        "name": "Ken Food LLC",
+        "logo": "/client-logos/kenfood.png"
+    },
+    "default": {
+        "name": "Our Valued Client",
+        "logo": "/client-logos/default.png"
+    }
+}
