@@ -9,6 +9,11 @@
         "logo": "/client-logos/kenfood.png",
         "description": "Ken Food WLL is a leading food distribution company in Qatar, providing high-quality products to restaurants and retailers. We are committed to excellence in service and product quality."
     },
+    "wishmaster.ae": {
+        "name": "Wishmaster",
+        "logo": "/client-logos/default.png",
+        "description": "Dive into the world of Wishmaster, a premier distributor stationed in Dubai since 1985. We’re proud to partner with an impressive roster of both national and global Home Appliances Electronics brands. Our vision encompasses global aspirations, driven by innovation and the desire to bring world-class products and services to our esteemed clientele."
+    },
     "default": {
         "name": "Our Valued Client",
         "logo": "/client-logos/default.png",
